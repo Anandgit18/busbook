@@ -1,6 +1,6 @@
 FROM node
 WORKDIR /app
-COPY package.json .
+COPY --from=BUILD_IMAGE busbook/ /app/
 RUN npm install --legacy-peer-deps
 COPY . .
 EXPOSE 3000

@@ -1,15 +1,17 @@
 apiVersion: v1
-kind: Pod
+kind: Service
 metadata:
-  name: busweb-pod  
+  name: loadbalancer-svc
 spec:
   type: LoadBalancer
   selector:
-    app: busweb-pod
+    app: kyrosbus
   ports:
     - name: http
       protocol: TCP
-      port: 80
+      port: 5000
+      targetPort: 3000
+      nodePort: 31110
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -19,17 +21,15 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: busweb-pod
+      app: kyrosbus
   template:
     metadata:
       labels:
-        app: busweb-pod 
+        app: kyrosbus
     spec:
       containers:
-        - name: nodeweb
+        - name: kyrosserver
           image: ananddocker18/kyrosbus:latest
           imagePullPolicy: Always
           ports:
-          -name: http
-           containerPort: 3000
-           protocol: TCP
+          - containerPort: 3000

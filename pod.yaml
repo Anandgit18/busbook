@@ -1,11 +1,10 @@
-apiVersion: v1
 kind: Service
 metadata:
   name: loadbalancer-svc
 spec:
   type: LoadBalancer
   selector:
-    app: hello
+    app: nodeweb
   ports:
     - name: http
       protocol: TCP
@@ -19,13 +18,17 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: hello
+      app: nodeweb
   template:
     metadata:
       labels:
-        app: hello 
+        app: nodeweb 
     spec:
       containers:
-        - name: hello
+        - name: nodeweb
           image: ananddocker18/kyrosbus:latest
           imagePullPolicy: Always
+          ports:
+          -name: http 
+           containerport: 3000
+           protocol: TCP

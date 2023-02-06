@@ -30,5 +30,5 @@ spec:
           imagePullPolicy: Always
           ports:
           -name: http 
-           containerport: 3000
+           containerPort: 3000
            protocol: TCP

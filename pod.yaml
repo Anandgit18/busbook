@@ -25,7 +25,7 @@ spec:
         app: nodeweb 
     spec:
       containers:
-        - name: nodeweb
+        - name: kyroscontainer
           image: ananddocker18/kyrosbus:latest
           imagePullPolicy: Always
           ports:

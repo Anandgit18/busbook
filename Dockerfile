@@ -4,6 +4,6 @@ COPY ./public /code/public
 COPY ./src /code/src
 COPY ./package-lock.json /code/package-lock.json
 COPY ./package.json /code/package.json
-RUN npm install --legacy-peer-deps
+RUN npm install 
 EXPOSE 3000
 CMD ["npm", "start"]

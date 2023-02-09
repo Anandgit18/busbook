@@ -1,5 +1,5 @@
 FROM node
-WORKDIR /app
+WORKDIR /code
 COPY package-lock.json .
 COPY . .
 RUN npm install --legacy-peer-deps

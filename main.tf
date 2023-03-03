@@ -54,8 +54,7 @@ resource "aws_instance" "ec2_terra" {
     ami = "ami-09ba48996007c8b50"
     instance_type = "t2.micro"
     availability_zone = "ap-south-1a"
-    key_name = "-----BEGIN RSA PRIVATE KEY-----
-MIIEpQIBAAKCAQEAqj/kS+L161IETKOEpIWQGqk37cJz5s6XMNwEm8oZIgKz+Rhp
+    key_name = "MIIEpQIBAAKCAQEAqj/kS+L161IETKOEpIWQGqk37cJz5s6XMNwEm8oZIgKz+Rhp
 /gbQOrQ0eb13YNXFWqC0AnlewuZ+uMTMpxo1vqhwyufPd7xOp5ykKh8d6Sfho3Ic
 2eQwNxIIuTYAwqi2OYLJOy7JEjRxqvh9lGymEqBREiNsZl1M/SDHMVuOJ6/ue/cz
 Coa7n0HXkQ7NUhgoYldWbY0vHYmn1tS3XpxTANP2Xbvp3edrtaNoXfRntreq0TSN
@@ -79,8 +78,7 @@ bbbS/5tGW7Xbkhr9AIuAGedN+zPTUAFhowvBWcvizCC5UT0s4Q9KJjTT49JpGYn4
 aSwq0sOe/FB3eq3CAC2RxdWEtZ2Sl+xEAVXAJ2WjWmKmjQmjm9+q7tjfYU9HfXnA
 Li416mkCgYEA2Z9BjeXWK5Eb8eIHWgWbnGleemdMjO/UkGc7jTKSg8gktZP/cl8d
 fugm3IN3GSR3tfDW5llqhFWmksYEUtn3ZKpYOhwxaYHmPu6R2glhm51Zsj3Rqe9R
-/MHdyHS43vrjReGcdtmDv3d7YynJ6RYbYwOJQqKaqMUYkkZHJ4YE4WM=
------END RSA PRIVATE KEY-----"
+/MHdyHS43vrjReGcdtmDv3d7YynJ6RYbYwOJQqKaqMUYkkZHJ4YE4WM="
     subnet_id              = aws_subnet.terra_subnet.id
     vpc_security_group_ids = [aws_security_group.terra_sg.id]
     tags = {

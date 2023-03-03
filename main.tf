@@ -73,7 +73,7 @@ resource "aws_instance" "terra" {
 
     inline = [
         "sudo chmod +x C:/DevOps/Terraformterraformfile/web.sh"
-        "sudo C:/DevOps/Terraformterraformfile/web.sh"
+        "sh C:/DevOps/Terraformterraformfile/web.sh"
     ]
  }
  

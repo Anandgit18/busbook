@@ -21,7 +21,7 @@ resource "aws_vpc" "terra-vpc" {
 }
 
 resource "aws_subnet" "terra_subnet" {
-    vpc_id = aws_vpc.terra.vpc_id
+    vpc_id = aws_vpc.terra-vpc.id
     cidr_block = "10.0.1.0/24"
     map_public_ip_on_launch = "true"
     availability_zone = "ap-south-1a"
@@ -33,7 +33,7 @@ resource "aws_subnet" "terra_subnet" {
 resource "aws_security_group" "terra_sg" {
     name        = "terra-sg"
     description = "Allow TLS inbound traffic"
-    vpc_id      = aws_vpc.terra.id
+    vpc_id      = aws_vpc.terra-vpc.id
   
     ingress {
       description      = "TLS from VPC"

@@ -5,11 +5,6 @@ provider "aws" {
     secret_key = "St9RJnPtXyPRstlw0GUPG4rB5Hch+jAJgV/gPDps"
 }
 
-resource "aws_key_pair" "terra-key" {
-    key_name = "terrakey"
-    public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDkbBoK3UcjukiUhg6AJJHFX6qBHFmgLHjLDb9OW7Mw4a9D+QjoKkzxhp5gIGwmGuStL0pCPpGqw84/OtxWtf+2LuPOuAjFe0CElm+ewy0wqzVSQdIEkHXVwWsEeQqjlAbVHd/TcTuNfi8/Uwhz04Ocy+NzQutCwGkn7mUXCwgALV/HTgH4CRNamAly6FaYXxz8uF1lsRmK4j+/3du6+UDYkNq1+2kvjBpuMi+YghhvX+RzRyp7kFaYVYNfBLrPRWS5iC3od0unuMUsGeM5Qqpq4gfrxS9JektC0nijjGLZY8BoKv7bFHRzmKHDQVZL7YuThOmj9zmUductFPS1vp9Fyfqcw5S+j2oe15kng/ufEhRFFQA4IVgEFy8SVrk8z2VdGTpzr85hKP/gueHLdz4oXy+O4sKIWj52vxczdz+ia8Wcj3LSgYaZwbb0ylklnH35j6Jram71RBR3DjR8iJKqsAVTAdXOBbolRFHeaVlFXq6oOtDBCReb7wrWe/V71wk= delll@DESKTOP-50O6G82"
-}
-
 resource "aws_vpc" "terra-vpc" {
     cidr_block = "10.0.0.0/16"
     instance_tenancy = "default"
@@ -59,7 +54,7 @@ resource "aws_instance" "ec2_terra" {
     ami = "ami-09ba48996007c8b50"
     instance_type = "t2.micro"
     availability_zone = "ap-south-1a"
-    key_name = aws_key_pair.terra-key.key_name
+    key_name = "terrakey"
     subnet_id              = aws_subnet.terra_subnet.id
     vpc_security_group_ids = [aws_security_group.terra_sg.id]
     tags = {
@@ -81,7 +76,7 @@ resource "aws_instance" "ec2_terra" {
  
  connection {
     user = "ec2-user"
-    private_key = file("terrakey")
+    private_key = file("C:/Users/delll/Downloads/terrakey.pem")
     host = aws_instance.ec2_terra.public_ip
  }
 }

@@ -66,14 +66,14 @@ resource "aws_instance" "terra" {
     
  provisioner "file" {
     source = "web.sh"
-    destination = "C:/DevOps/Terraformterraformfile/web.sh"
+    destination = "/home/ec2-user/web.sh"
  }
 
  provisioner "remote-exec"{
 
     inline = [
-        "sudo chmod +x C:/DevOps/Terraformterraformfile/web.sh"
-        "sh C:/DevOps/Terraformterraformfile/web.sh"
+        "sudo chmod +x /home/ec2-user/web.sh"
+        "sh /home/ec2-user/web.sh"
     ]
  }
  

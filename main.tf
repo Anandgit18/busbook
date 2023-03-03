@@ -60,6 +60,8 @@ resource "aws_instance" "terra" {
     instance_type = "t2.micro"
     availability_zone = "ap-south-1a"
     key_name = aws_key_pair.terra-key.key_name
+    subnet_id              = aws_subnet.terra_subnet.id
+    vpc_security_group_ids = [aws_security_group.terra_sg.id]
     tags = {
         Name = "terra-server"
     }

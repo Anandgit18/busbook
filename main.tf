@@ -72,8 +72,8 @@ resource "aws_instance" "terra" {
  provisioner "remote-exec"{
 
     inline = [
-        "sudo chmod +x /home/ec2-user/web.sh"
-        "sh /home/ec2-user/web.sh"
+        "sudo chmod +x /home/ec2-user/web.sh",
+        "sh /home/ec2-user/web.sh",
     ]
  }
  

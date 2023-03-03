@@ -55,7 +55,7 @@ resource "aws_security_group" "terra_sg" {
     }
 }
 
-resource "aws_instance" "terra" {
+resource "aws_instance" "ec2_terra" {
     ami = "ami-09ba48996007c8b50"
     instance_type = "t2.micro"
     availability_zone = "ap-south-1a"
@@ -82,11 +82,11 @@ resource "aws_instance" "terra" {
  connection {
     user = "ec2-user"
     private_key = file("terrakey")
-    host = aws_instance.terra.public_ip
+    host = aws_instance.ec2_terra.public_ip
  }
 }
 
 # print the url of the container server
 output "container_url" {
-  value = join("", ["http://", aws_instance.terra.public_dns])
+  value = join("", ["http://", aws_instance.ec2_terra.public_dns])
 }
